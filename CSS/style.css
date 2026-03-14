@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: bisque;
+}
+
+header {
+    border-bottom: 3px purple solid;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+/* Normas para el grid, tanto las areas de cada elemento como la disposición */
+main {
+    margin: 1vw;
+    gap: 0.5vw;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    /* grid-template-rows: repeat(3, 10rem); */
+    grid-template-rows: 10rem 25rem 10rem;
+    grid-template-areas: 
+    "article1 article1 imagen1 aside"
+    "article2 imagen2 imagen2 aside"
+    "footer footer footer footer";
+
+    > * {
+        background-color: pink;
+        padding: 30px;
+        border-radius: 15px;
+    }
+
+    div {
+        padding: 15px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    #imagen1 {
+        grid-area: imagen1;
+
+        img {
+            object-fit: contain;
+        }
+    }
+
+    #imagen2 {
+        grid-area: imagen2;
+    }
+
+    #article1 {
+        grid-area: article1;
+
+        h2 {
+            padding-left: 0;
+            padding-top: 8px;
+            border-top: 15px solid black;
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5vw;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    #article2 {
+        grid-area: article2;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    h2 {
+        position: relative;
+        padding-left: 1vw;
+    }
+
+    h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5vw;
+        width: 0.4vw;
+        height: 70%;
+        border-radius: 4px;
+        background: linear-gradient(180deg, green, blue);
+    }
+}
+
+body > footer {
+    padding: 9px;
+    background-color: violet;
+    border-radius: 15px;
+
+    h2 {
+        display: flex;
+        justify-content: space-between;
+    }
+}
