@@ -110,32 +110,31 @@ main {
 
         > ul {
             
-            #liCartas{
-                list-style-type: "\1F3B4";
+            #liCartas::marker{
+                content: "\1F3B4";
             }
 
-            #liVideojuegos {
-                list-style-type: "\1F3AE";
+            #liVideojuegos::marker {
+                content: "\1F3AE";
             }
 
-            #liSeries {
-                list-style-type: "\1F4FA";
+            #liSeries::marker {
+                content: "\1F4FA";
             }
 
-            #liDibujo {
-                list-style-type: "\1F3A8";
+            #liDibujo::marker {
+                content: "\1F3A8";
             }
 
-            #liEscribir {
-                list-style-type: "\270D";
+            #liEscribir::marker {
+                content: "\270D";
             }
 
             ul {
                 margin-left: 1.5em;
 
-                li::marker {
-                    color: var(--li-nested-color);
-                    content: "•";
+                li {
+                    list-style-type: disc;
                 }
             }
         }
@@ -145,10 +144,6 @@ main {
         grid-area: footer;
         display: flex;
         gap: 1.8vw;
-<<<<<<< HEAD
-        /* flex-wrap: wrap; */
-=======
->>>>>>> 919f8a2 (Añadimos emojis a la lista y cambiamos su estilo)
         justify-content: space-between;
         align-items: center;
     }
