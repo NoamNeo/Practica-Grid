@@ -53,7 +53,7 @@ main {
 	justify-content: center;
 	display: grid;
 	grid-template-columns: repeat(4, 25%);
-	grid-template-rows: minmax(auto, 10rem);
+	grid-template-rows: minmax(auto, 15rem) minmax(auto, 20rem) auto;
 	grid-template-areas: 
 	"article1 article1 imagen1 aside"
 	"article2 imagen2 imagen2 aside"
