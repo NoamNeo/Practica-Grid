@@ -34,7 +34,7 @@ body {
     padding: 15px 50px;
     background: var(--body-bg);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+    font-size: clamp(1rem, 1.5rem, 2rem);
 }
 
 header {
@@ -111,7 +111,8 @@ main {
         grid-area: aside;
 
         > ul {
-            
+            margin-left: 1.8rem;
+
             #liCartas::marker{
                 content: "\1F3B4";
             }
@@ -193,6 +194,7 @@ body > footer {
 
         footer {
             justify-content: center;
+            flex-direction: column;
 
             div {
                 display: flex;
