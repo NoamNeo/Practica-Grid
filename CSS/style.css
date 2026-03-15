@@ -1,5 +1,4 @@
 :root {
-    /* Theme-specific variables (White Mana) */
     --white-body-bg: #EBE5D8;
     --white-accent-color: #5A5A5D;
     --white-alt-color: #dad5bc;
@@ -7,6 +6,7 @@
     --white-text-color: #333333;
     --white-accent-gradient: linear-gradient(180deg, #C5A566, #5A5A5D);
     --white-gradient-bg: radial-gradient(circle, var(--white-alt-color), var(--white-body-bg));
+    --nested-li-style: black;
 
     /* Component mapping (active theme) */
     --body-bg: var(--white-gradient-bg);
@@ -14,6 +14,7 @@
     --grid-item-bg: var(--white-grid-item-bg);
     --text-color: var(--white-text-color);
     --accent-gradient: var(--white-accent-gradient);
+    --li-nested-color: var(--nested-li-style);
 }
 
 
@@ -106,13 +107,48 @@ main {
 
     aside {
         grid-area: aside;
+
+        > ul {
+            
+            #liCartas{
+                list-style-type: "\1F3B4";
+            }
+
+            #liVideojuegos {
+                list-style-type: "\1F3AE";
+            }
+
+            #liSeries {
+                list-style-type: "\1F4FA";
+            }
+
+            #liDibujo {
+                list-style-type: "\1F3A8";
+            }
+
+            #liEscribir {
+                list-style-type: "\270D";
+            }
+
+            ul {
+                margin-left: 1.5em;
+
+                li::marker {
+                    color: var(--li-nested-color);
+                    content: "•";
+                }
+            }
+        }
     }
 
     footer {
         grid-area: footer;
         display: flex;
         gap: 1.8vw;
+<<<<<<< HEAD
         /* flex-wrap: wrap; */
+=======
+>>>>>>> 919f8a2 (Añadimos emojis a la lista y cambiamos su estilo)
         justify-content: space-between;
         align-items: center;
     }
