@@ -1,13 +1,17 @@
 :root {
+	/* Extras */
+	--black-var: black;
 	/* Coffee Shop Theme */
 	--coffee-body-bg: #D4C4A8;
 	--coffee-alt: #C9B896;
 	--coffee-grid-bg: #F2E8D5;
 	--coffee-text: #3D2914;
 	--coffee-accent: #6B4423;
+	--coffee-orange: #B85C38;
 	--coffee-gradient: linear-gradient(180deg, #A67C52, #6B4423);
 	--coffee-gradient-bg: radial-gradient(circle, var(--coffee-alt), var(--coffee-body-bg));
 	--coffee-marker: #3D2914;
+	--coffee-footer-bg: linear-gradient(180deg, var(--coffee-accent), #4A3328);
 
 	/* Component mapping (active theme) */
 	--body-bg: var(--coffee-gradient-bg);
@@ -16,6 +20,7 @@
 	--text-color: var(--coffee-text);
 	--accent-gradient: var(--coffee-gradient);
 	--li-nested-color: var(--coffee-marker);
+	--footer-bg: var(--coffee-footer-bg);
 }
 
 
@@ -27,6 +32,15 @@
 
 a {
 	text-decoration: none;
+	color: var(--black-var);
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h4 {
+	font-size: 1rem;
 }
 
 body {
@@ -87,10 +101,12 @@ main {
 
 	#article1 {
 		grid-area: article1;
+		background: var(--footer-bg);
+		color: var(--coffee-grid-bg);
 
 		h2 {
 			padding-left: 0;
-			border-top: 0.5vw solid var(--text-color);
+			border-top: 0.5vw solid var(--coffee-grid-bg);
 		}
 
 		h2::before {
@@ -113,6 +129,19 @@ main {
 		> ul {
 			margin-left: 1.8rem;
 
+			> li {
+				color: var(--coffee-orange);
+
+				ul {
+					margin-left: 1.5em;
+
+					li {
+						list-style-type: disc;
+						color: var(--black-var);
+					}
+				}
+			}
+
 			#liCartas::marker{
 				content: "\1F3B4";
 			}
@@ -133,13 +162,6 @@ main {
 				content: "\270D";
 			}
 
-			ul {
-				margin-left: 1.5em;
-
-				li {
-					list-style-type: disc;
-				}
-			}
 		}
 	}
 
@@ -149,6 +171,12 @@ main {
 		gap: 1.8vw;
 		justify-content: space-between;
 		align-items: center;
+		
+		div {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5vw;
+		}
 	}
 
 	h2 {
@@ -160,7 +188,7 @@ main {
 		content: "";
 		position: absolute;
 		left: 0;
-		top: 0.5vw;
+		top: 0.325vw;
 		width: 0.4vw;
 		height: 70%;
 		border-radius: 0.75vw;
@@ -170,24 +198,34 @@ main {
 
 body > footer {
 	padding: 0.725vw;
-	background: linear-gradient(180deg, var(--accent-color), #4A3328);
+	background: var(--grid-item-bg);
 	border-radius: 0.6125vw;
 
 	h2 {
+		font-size: 1.25rem;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
+		color: var(--text-color);
 	}
 }
 
 .capsula {
 	background-color: var(--accent-color);
 	border-radius: 0.6125vw;
-	padding: 0.5vw;
-	max-width: 10vw;
 	text-align: center;
+	max-width: 10vw;
+
+	a {
+		padding: 0.5vw;
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
 }
 
 @media (max-width: 768px) {
+	/* TODO: Media queries para las imágenes y adaptación a pantallas más pequeñas */
 	main {
 		display: flex;
 		flex-direction: column;
