@@ -1,113 +1,156 @@
+/* ========================================
+   VARIABLES CSS - TEMA CAFETERÍA
+   ======================================== */
 :root {
-	/* Extras */
-	--black-var: black;
-	/* Coffee Shop Theme */
-	--coffee-body-bg: #D4C4A8;
-	--coffee-alt: #C9B896;
-	--coffee-grid-bg: #F2E8D5;
-	--coffee-text: #3D2914;
-	--coffee-accent: #6B4423;
-	--coffee-orange: #B85C38;
-	--coffee-gradient: linear-gradient(180deg, #A67C52, #6B4423);
-	--coffee-gradient-bg: radial-gradient(circle, var(--coffee-alt), var(--coffee-body-bg));
-	--coffee-marker: #3D2914;
-	--coffee-footer-bg: linear-gradient(180deg, var(--coffee-accent), #4A3328);
+	/* Variables de colores del tema */
+	--black-var: black;                    /* Color negro base */
+	
+	/* Paleta de colores - Tema Coffee Shop */
+	--coffee-body-bg: #D4C4A8;              /* Fondo principal (crema café claro) */
+	--coffee-alt: #C9B896;                  /* Color alternativo/segundario */
+	--coffee-grid-bg: #F2E8D5;              /* Fondo de celdas del grid */
+	--coffee-text: #3D2914;                  /* Color del texto (espresso oscuro) */
+	--coffee-accent: #6B4423;               /* Color de acento principal (marrón café) */
+	--coffee-orange: #B85C38;               /* Color naranja-terracota para highlights */
+	
+	/* Degradados */
+	--coffee-gradient: linear-gradient(180deg, #A67C52, #6B4423);  /* De dorado a marrón */
+	--coffee-gradient-bg: radial-gradient(circle, var(--coffee-alt), var(--coffee-body-bg)); /* Fondo radial suave */
+	--coffee-footer-bg: linear-gradient(180deg, var(--coffee-accent), #4A3328);  /* Fondo del footer */
 
-	/* Component mapping (active theme) */
-	--body-bg: var(--coffee-gradient-bg);
-	--accent-color: var(--coffee-accent);
-	--grid-item-bg: var(--coffee-grid-bg);
-	--text-color: var(--coffee-text);
-	--accent-gradient: var(--coffee-gradient);
-	--li-nested-color: var(--coffee-marker);
-	--footer-bg: var(--coffee-footer-bg);
+	/* Mapeo de componentes al tema activo */
+	--body-bg: var(--coffee-gradient-bg);        /* Color de fondo del body */
+	--accent-color: var(--coffee-accent);        /* Color de acento general */
+	--grid-item-bg: var(--coffee-grid-bg);      /* Fondo de items del grid */
+	--text-color: var(--coffee-text);           /* Color de texto */
+	--accent-gradient: var(--coffee-gradient);   /* Degradado de acento */
+	--footer-bg: var(--coffee-footer-bg);       /* Fondo del pie de página */
 }
 
 
+/* ========================================
+   RESET BÁSICO
+   Elimina estilos por defecto del navegador
+   ======================================== */
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	margin: 0;            /* Eliminar márgenes por defecto de todos los elementos */
+	padding: 0;           /* Eliminar padding por defecto */
+	box-sizing: border-box;  /* Incluir bordes y padding dentro del ancho/alto total */
 }
 
+
+/* ========================================
+   ESTILOS DE ENLACES
+   ======================================== */
 a {
-	text-decoration: none;
-	color: var(--black-var);
+	text-decoration: none;  /* Quitar el subrayado de los enlaces */
+	color: var(--black-var); /* Color del texto del enlace */
 }
 
+
+/* ========================================
+   ESTILOS DE ENCABEZADOS
+   ======================================== */
 h2 {
-	font-size: 1.75rem;
+	font-size: 1.75rem;  /* Tamaño de fuente para encabezados h2 */
 }
 
 h4 {
-	font-size: 1rem;
+	font-size: 1rem;      /* Tamaño de fuente para encabezados h4 */
 }
 
+
+/* ========================================
+   ESTILOS GENERALES DEL BODY
+   Configuración base de la página
+   ======================================== */
 body {
-	width: 100%;
-	height: 100%;
-	padding: 1vw 3.3vw;
-	background: var(--body-bg);
-	font-family: 'IBM Plex Mono', monospace;
+	width: 100%;                         /* Ocupar todo el ancho disponible */
+	height: 100%;                        /* Ocupar todo el alto disponible */
+	padding: 1vw 3.3vw;                  /* Relleno: vertical 1vw, horizontal 3.3vw */
+	background: var(--body-bg);          /* Color de fondo del tema */
+	font-family: 'IBM Plex Mono', monospace;  /* Fuente monoespaciada */
+	/* clamp(min, preferido, max) - Tamaño de fuente responsive */
 	font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.225rem);
 }
 
+
+/* ========================================
+   ENCABEZADO (HEADER)
+   Barra de título con nombre y subtítulo
+   ======================================== */
 header {
-	border-bottom: 0.5vw var(--accent-color) solid;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	justify-content: space-between;
+	border-bottom: 0.5vw var(--accent-color) solid;  /* Borde inferior con color de acento */
+	display: flex;                    /* Usar flexbox para distribuir elementos */
+	flex-wrap: wrap;                  /* Permitir ajuste de líneas en pantallas pequeñas */
+	align-items: baseline;            /* Alinear elementos por la línea base del texto */
+	justify-content: space-between;   /* Distribuir espacio uniformemente entre elementos */
 }
 
-/* Normas para el grid, tanto las areas de cada elemento como la disposición */
-main {
-	margin: 1vw;
-	gap: 0.5vw;
-	justify-content: center;
-	display: grid;
-	grid-template-columns: repeat(4, 25%);
-	grid-template-rows: minmax(auto, 15rem) minmax(auto, 20rem) auto;
-	grid-template-areas: 
-	"article1 article1 imagen1 aside"
-	"article2 imagen2 imagen2 aside"
-	"footer footer footer footer";
 
+/* ========================================
+   CUADRICULA PRINCIPAL (MAIN)
+   Definición del grid: áreas, filas y columnas
+   ======================================== */
+main {
+	margin: 1vw;                       /* Margen exterior alrededor del grid */
+	gap: 0.5vw;                       /* Espacio entre celdas del grid */
+	justify-content: center;           /* Centrar contenido en el eje horizontal */
+	display: grid;                    /* Usar CSS Grid para el layout */
+
+	/* 4 columnas de igual ancho (25% cada una) */
+	grid-template-columns: repeat(4, 25%);
+
+	/* Filas: auto-ajustables con altura mínima de 15rem, 20rem y auto */
+	grid-template-rows: minmax(auto, 15rem) minmax(auto, 20rem) auto;
+
+	/* Definición de áreas del grid - controla la disposición visual */
+	grid-template-areas: 
+		"article1 article1 imagen1 aside"
+		"article2 imagen2 imagen2 aside"
+		"footer footer footer footer";
+
+	/* Estilos para todos los hijos directos de main (celdas del grid) */
 	> * {
-		background: var(--grid-item-bg);
-		padding: 1.225vw;
-		/* Valor extraño porque usé una calculadora para la relación */
-		border-radius: 0.6125vw;
+		background: var(--grid-item-bg);  /* Fondo de las celdas */
+		padding: 1.225vw;                /* Relleno interno de las celdas */
+		border-radius: 0.6125vw;         /* Bordes redondeados */
 	}
 
+	/* Estilos para elementos div dentro de main (contenedores de imágenes) */
 	div {
-		padding: 0;
+		padding: 0;  /* Sin padding en los divs */
 
 		img {
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
+			height: 100%;      /* Imagen ocupa todo el alto del contenedor */
+			width: 100%;       /* Imagen ocupa todo el ancho del contenedor */
+			object-fit: cover; /* Mantener proporción, cubrir todo el espacio */
 			border-radius: 0.6125vw;
 		}
 	}
+
+	/* Imagen 1 - Primera imagen en el grid */
 	#imagen1 {
-		grid-area: imagen1;
+		grid-area: imagen1;  /* Asignar al área llamada 'imagen1' */
 	}
 
+	/* Imagen 2 - Segunda imagen en el grid */
 	#imagen2 {
 		grid-area: imagen2;
 	}
 
+	/* Artículo 1 - Área principal con estilos invertidos (fondo oscuro) */
 	#article1 {
 		grid-area: article1;
-		background: var(--footer-bg);
-		color: var(--coffee-grid-bg);
+		background: var(--footer-bg);    /* Fondo oscuro del tema */
+		color: var(--coffee-grid-bg);     /* Texto en color claro */
 
 		h2 {
 			padding-left: 0;
-			border-top: 0.5vw solid var(--coffee-grid-bg);
+			border-top: 0.5vw solid var(--coffee-grid-bg);  /* Línea decorativa superior */
 		}
 
+		/* Eliminamos la decoración de h2 para este, ya que tenemos la línea del borde */
 		h2::before {
 			content: "";
 			position: absolute;
@@ -118,86 +161,98 @@ main {
 		}
 	}
 
+	/* Artículo 2 - Segundo artículo del grid */
 	#article2 {
 		grid-area: article2;
 	}
 
+	/* Barra lateral (ASIDE) - Lista de intereses */
 	aside {
 		grid-area: aside;
 
 		> ul {
-			margin-left: 1.8rem;
+			margin-left: 1.8rem;  /* Sangría izquierda para la lista */
 
+			/* Elementos de lista de primer nivel - color naranja */
 			> li {
 				color: var(--coffee-orange);
 
 				ul {
-					margin-left: 1.5em;
+					margin-left: 1.5em;  /* Sangría para sublistas */
 
 					li {
-						list-style-type: disc;
+						list-style-type: disc;  /* Viñeta sólida negra */
 						color: var(--black-var);
 					}
 				}
 			}
 
+			/* Marcadores personalizados con emojis para cada categoría */
 			#liCartas::marker{
-				content: "\1F3B4";
+				content: "\1F3B4";  /* Emoji de cartas */
 			}
 
 			#liVideojuegos::marker {
-				content: "\1F3AE";
+				content: "\1F3AE";  /* Emoji de mando de videojuegos */
 			}
 
 			#liSeries::marker {
-				content: "\1F4FA";
+				content: "\1F4FA";  /* Emoji de televisión */
 			}
 
 			#liDibujo::marker {
-				content: "\1F3A8";
+				content: "\1F3A8";  /* Emoji de paleta de colores */
 			}
 
 			#liEscribir::marker {
-				content: "\270D";
+				/* Este emoji está testeado de que no funciona en algunas versiones de firefox */
+				content: "\270D";  /* Emoji de lápiz */
 			}
-
 		}
 	}
 
+	/* Pie de página dentro del grid (footer del main) */
 	footer {
 		grid-area: footer;
 		display: flex;
-		gap: 1.8vw;
+		gap: 1.8vw;                    /* Espacio entre elementos del footer */
 		justify-content: space-between;
 		align-items: center;
 		
 		div {
 			display: flex;
-			flex-direction: column;
+			flex-direction: column;   /* Elementos hijos en columna */
 			gap: 0.5vw;
 		}
 	}
 
+	/* Estilos generales para todos los h2 dentro de main */
 	h2 {
-		position: relative;
-		padding-left: 1vw;
+		position: relative;       /* Posición relativa para usar pseudo-elementos */
+		padding-left: 1vw;        /* Espacio a la izquierda para la barra decorativa */
 	}
 
+	/* Barra decorativa antes de cada h2 - elemento visual de acento */
 	h2::before {
 		content: "";
 		position: absolute;
 		left: 0;
 		top: 0.325vw;
-		width: 0.4vw;
-		height: 70%;
+		width: 0.4vw;          /* Ancho de la barra decorativa */
+		height: 70%;            /* Alto de la barra (70% del elemento padre) */
 		border-radius: 0.75vw;
-		background: var(--accent-gradient);
+		background: var(--accent-gradient);  /* Degradado de color de acento */
 	}
 }
 
+
+/* ========================================
+   PIE DE PÁGINA PRINCIPAL (BODY > FOOTER)
+   Footer exterior al grid 
+   ======================================== */
 body > footer {
 	padding: 0.725vw;
-	background: var(--grid-item-bg);
+	background: var(--grid-item-bg);  /* Fondo claro como las celdas del grid */
 	border-radius: 0.6125vw;
 
 	h2 {
@@ -209,29 +264,73 @@ body > footer {
 	}
 }
 
+
+/* ========================================
+   CÁPSULA (CLASE .CAPSULA)
+   Estilos para los botones/enlaces de GitHub
+   ======================================== */
 .capsula {
-	background-color: var(--accent-color);
+	background-color: var(--accent-color);  /* Fondo con color de acento */
 	border-radius: 0.6125vw;
 	text-align: center;
-	max-width: 10vw;
+	max-width: 10vw;    /* Ancho máximo relativo al viewport */
 
 	a {
 		padding: 0.5vw;
 		height: 100%;
 		width: 100%;
-		display: block;
+		display: block;  /* Convertir enlace en elemento de bloque */
 	}
 }
 
+
+/* ========================================
+   MEDIA QUERIES - TABLETS (hasta 820px)
+   Ajustes de diseño para pantallas medianas
+   ======================================== */
+@media (max-width: 820px) {
+	body {
+		font-size: clamp(0.775rem, 1.25vw + 0.5rem, 1.125rem);
+	}
+
+	h2 {
+		font-size: 1.25rem;
+	}
+
+	h4 {
+		font-size: 0.75rem;
+	}
+
+	main {
+		> * {
+			padding: 0.5vw;  /* Reducir padding en tablets */
+		}
+
+		footer {
+			div {
+				.capsula {
+					max-width: 30vw;
+					width: 20vw;
+				}
+			}
+		}
+	}
+}
+
+
+/* ========================================
+   MEDIA QUERIES - MÓVILES (hasta 768px)
+   Ajustes para pantallas pequeñas
+   ======================================== */
 @media (max-width: 768px) {
-	/* TODO: Media queries para las imágenes y adaptación a pantallas más pequeñas */
+	/* Cambiar grid a columna única para móvil */
 	main {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column;  /* Elementos en una sola columna */
 		gap: 1vw;
 
+		/* Ajustar imagen 1 para móvil */
 		div#imagen1 {
-
 			img {
 				display: block;
 				max-height: 30vw;
@@ -239,28 +338,48 @@ body > footer {
 			}
 		}
 
+		/* Ajustar imagen 2 para móvil */
 		div#imagen2 {
-
 			img {
 				display: block;
 				max-height: 50vw;
 				object-fit: cover;
 			}
 		}
+		
+		/* Ordenar elementos en móvil - mostrar antes las imágenes */
+		#article1 {
+			order: -2;  /* Segundo elemento */
+		}
 
-		/* footer {
-			grid-area: footer;
-			display: flex;
-			gap: 1.8vw;
-			justify-content: space-between;
-			align-items: center;
-			
-			div {
-				display: flex;
-				flex-direction: column;
-				gap: 0.5vw;
+		#imagen1 {
+			order: -1;  /* Primer elemento */
+		}
+		
+		#imagen2 {
+			order: -3;  /* Tercer elemento */
+		}
+
+		/* Ajustar barra decorativa en aside para móvil */
+		aside {
+			h2::before {
+				height: 88%;
 			}
-		} */
+		}
+		
+		/* Barra decorativa general para móviles */
+		h2::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 1.75vw;
+			width: 1vw;
+			height: 60%;
+			border-radius: 0.75vw;
+			background: var(--accent-gradient);
+		}
+
+		/* Footer en columna para móvil */
 		footer {
 			justify-content: center;
 			flex-direction: column;
@@ -268,7 +387,16 @@ body > footer {
 			div {
 				display: flex;
 				flex-direction: column;
+				align-items: center;
+				gap: 0;
 
+				h4 {
+					display: flex;
+					gap: 0.25vw;
+					flex-direction: column;
+					text-align: center;
+					align-items: center;
+				}
 				.capsula {
 					max-width: 30vw;
 					width: 20vw;
