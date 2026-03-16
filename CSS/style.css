@@ -4,6 +4,7 @@
 :root {
 	/* Variables de colores del tema */
 	--black-var: black;                    /* Color negro base */
+	--white-var: white;
 	
 	/* Paleta de colores - Tema Coffee Shop */
 	--coffee-body-bg: #D4C4A8;              /* Fondo principal (crema café claro) */
@@ -270,17 +271,22 @@ body > footer {
    Estilos para los botones/enlaces de GitHub
    ======================================== */
 .capsula {
-	background-color: var(--accent-color);  /* Fondo con color de acento */
+	background-color: var(--coffee-alt);  /* Fondo con color de acento */
 	border-radius: 0.6125vw;
 	text-align: center;
 	max-width: 10vw;    /* Ancho máximo relativo al viewport */
+	padding: 0.5vw;
+	height: 100%;
+	width: 100%;
+	display: block;  /* Convertir enlace en elemento de bloque */
 
-	a {
-		padding: 0.5vw;
-		height: 100%;
-		width: 100%;
-		display: block;  /* Convertir enlace en elemento de bloque */
-	}
+	/* Reglas de transición para el hover */
+	transition-duration: 0.3s;
+}
+
+.capsula:hover {
+	background-color: var(--accent-color);  /* Fondo con color de acento */
+	color: var(--white-var);
 }
 
 
